@@ -32,7 +32,7 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric|min:0',
         ]);
         if ($validator->fails()) {
             return response()->json([
